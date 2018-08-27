@@ -1,0 +1,46 @@
+.button-container {
+  height: 400px;
+  width: 400px;
+  position: relative;
+}
+
+.button {
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  border-radius: 100%;
+  img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
+
+.button__main {
+  transform: translate(200px, 200px) translate(-50%, -50%);
+  box-shadow: 3px 5px 5px black;
+  height: 60px;
+  width: 60px;
+  font-size: 15px;
+  img {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+.button__close {
+  transform: translate(200px, 250px) translate(-50%, -50%);
+  z-index: 2;
+}
+
+.button__item {
+  box-shadow: 1px 5px 5px black;
+  height: 45px;
+  width: 45px;
+  font-size: 10px;
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}

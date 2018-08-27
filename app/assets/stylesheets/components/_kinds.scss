@@ -1,0 +1,112 @@
+.default {
+  height: 134px;
+  width: 156px;
+  background-size: cover;
+}
+
+.coop {
+  height: 134px;
+  width: 156px;
+  background-size: cover;
+  text-align: center;
+  button {
+    margin-top: 40px;
+    height: 60px;
+    width: 60px;
+  }
+  img { height: 55px; width: 55px }
+}
+
+.corral {
+  height: 134px;
+  width: 156px;
+  background-size: cover;
+  text-align: center;
+  label {
+    font-weight: bold;
+    padding: 5px;
+    display: block;
+    text-align: center;
+    input {
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+  }
+  button {
+    margin-top: 5px;
+    height: 45px;
+    width: 45px;
+  }
+  img { height: 40px; width: 40px }
+}
+
+.garden {
+  height: 134px;
+  width: 156px;
+  background-size: cover;
+  text-align: center;
+  button {
+    margin-top: 40px;
+    height: 60px;
+    width: 60px;
+  }
+  img { height: 55px; width: 55px }
+}
+
+.incinerator {
+  height: 134px;
+  width: 156px;
+  background-size: cover;
+  label {
+    font-weight: bold;
+    padding: 5px;
+    display: block;
+    text-align: center;
+    input {
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.pond {
+  height: 134px;
+  width: 156px;
+  background-size: cover;
+  label {
+    font-weight: bold;
+    padding: 5px;
+    display: block;
+    text-align: center;
+    input {
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.silo {
+  height: 134px;
+  width: 156px;
+  background-size: cover;
+  .flex-container {
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .countModButton {
+    border-radius: 5%;
+    width: 50%;
+  }
+  .countModButton--add {
+    background-color: #ff4d4d;
+    border-color: darken(#ff4d4d, 40%);
+  }
+  .countModButton--sub {
+    background-color: #79ff4d;
+    border-color: darken(#79ff4d, 40%);
+  }
+  img { height: 27px; width: 27px }
+}

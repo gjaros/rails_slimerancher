@@ -1,0 +1,25 @@
+.modal-button {
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 2px auto;
+  border-radius: 10%;
+  width: 32px;
+  height: 32px;
+  font-size: 7px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.ReactModal__Content:focus {
+  outline: 0;
+}
+
+.ReactModal__Content--after-open:focus {
+  outline: 0;
+}
+
+.modal:focus {
+  outline: 0;
+}

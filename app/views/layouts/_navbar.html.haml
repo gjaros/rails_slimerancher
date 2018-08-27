@@ -1,0 +1,11 @@
+.ui.top.fixed.menu
+  .ui.container
+    .right.menu
+      - if user_signed_in?
+        .item
+          = link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => 'ui primary button right'
+      - else
+        .item
+          = link_to 'Sign In', new_user_session_path, :class => 'ui primary button right'
+        .item
+          = link_to 'Sign Up', new_user_registration_path, :class => 'ui button'

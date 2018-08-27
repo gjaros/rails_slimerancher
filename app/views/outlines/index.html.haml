@@ -1,0 +1,28 @@
+-# %h1 Listing outlines
+-#
+-# %table
+-#   %thead
+-#     %tr
+-#       %th User
+-#       %th Name
+-#       %th Data
+-#       %th
+-#       %th
+-#       %th
+-#
+-#   %tbody
+-#     - @outlines.each do |outline|
+-#       %tr
+-#         %td= outline.user
+-#         %td= outline.name
+-#         %td= outline.data
+-#         %td= link_to 'Show', outline
+-#         %td= link_to 'Edit', edit_outline_path(outline)
+-#         %td= link_to 'Destroy', outline, method: :delete, data: { confirm: 'Are you sure?' }
+-#
+-# %br
+-#
+-# = link_to 'New Outline', new_outline_path
+
+#rancher_app
+=javascript_pack_tag 'rancher_app'
