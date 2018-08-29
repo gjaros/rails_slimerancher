@@ -1,5 +1,7 @@
 .ui.top.fixed.menu
   .ui.container
+    .header.item
+      = link_to 'Home', root_path
     .right.menu
       - if user_signed_in?
         .item
