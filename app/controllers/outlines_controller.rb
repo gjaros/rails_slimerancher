@@ -4,7 +4,9 @@ class OutlinesController < ApplicationController
   # GET /outlines
   # GET /outlines.json
   def index
-    @outlines = Outline.all
+    if user_signed_in?
+      @outlines = Outline.where(user_id: current_user.id)
+    end
   end
 
   # GET /outlines/1

@@ -45,3 +45,6 @@ select {
   width: 32px;
   // background-color: white;
 }
+.badge:empty {
+  display:block;
+}

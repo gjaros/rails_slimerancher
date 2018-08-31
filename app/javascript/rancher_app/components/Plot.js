@@ -49,8 +49,7 @@ const Plot = ({ dispatch, hidden, location, kind, plotProps, lists }) => {
         style={{ backgroundImage: 'url(' + require('../images/' + kind + '.png') + ')', left: location[0], top: location[1] }}
         onClick={() => {
           dispatch(toggleHidden(location.toString()));
-        }}
-        >
+        }}>
       </button>
       <div
         hidden={hidden}
@@ -70,12 +69,11 @@ const Plot = ({ dispatch, hidden, location, kind, plotProps, lists }) => {
         </select>
         { plot }
         <button
+          className="close-button"
           hidden={hidden}
           onClick={() => {
             dispatch(toggleHidden(location.toString()))
-          }}
-          className="close-button"
-          >
+          }}>
             Close
         </button>
       </div>

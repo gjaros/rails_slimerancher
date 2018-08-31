@@ -13,11 +13,11 @@
  *= require_tree .
  *= require_self
  */
- @import 'semantic-ui';
- @import './base/settings';
- @import './base/base';
- @import './components/plot';
- @import './components/kinds';
- @import './components/popList';
- @import './components/list';
- @import './components/rancher_app';
+
+@import 'bootstrap';
+@import './base';
+@import './components/plot';
+@import './components/kinds';
+@import './components/popList';
+@import './components/list';
+@import './components/rancher_app';

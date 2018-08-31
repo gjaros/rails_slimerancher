@@ -6,11 +6,17 @@ import { setSelected, toggleModal } from '../actions/actions';
 
 const customStyles = {
   content: {
+    display: 'block',
     background: 'none',
     border: 'none',
-    zIndex: 3
+    zIndex: 3,
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-25%, -50%)',
+    overflow: 'visible'
   },
   overlay: {
+    display: 'block',
     backgroundColor: 'rgba(0, 0, 0, 0.75)',
     zIndex: 3
   }
@@ -109,12 +115,13 @@ class List extends React.Component {
           isOpen={this.state.modalIsOpen}
           style={customStyles}
           className="modal"
+          ariaHideApp={false}
           >
           <button
             className="button button__close"
             onClick={this.toggleModal}
             >
-              X
+              <span>&times;</span>
           </button>
           <PopList
             list={this.state.entriesList}

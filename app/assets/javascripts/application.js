@@ -13,3 +13,20 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+
+$(document).ready(function(){
+  $('.fade-tooltip').click(function(){
+      var that = $(this)
+      that.tooltip('show');
+      setTimeout(function(){
+          that.tooltip('hide');
+      }, 2000);
+  });
+  $('.fade-tooltip').mouseleave(function(){
+      $(this).tooltip('hide');
+  });
+  $('[data-toggle="popover"]').popover();
+});

@@ -1,6 +1,4 @@
 .button-container {
-  height: 400px;
-  width: 400px;
   position: relative;
 }
 
@@ -30,6 +28,8 @@
 }
 
 .button__close {
+  height: 32px;
+  width: 32px;
   transform: translate(200px, 250px) translate(-50%, -50%);
   z-index: 2;
 }

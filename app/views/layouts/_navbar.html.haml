@@ -1,13 +1,14 @@
-.ui.top.fixed.menu
-  .ui.container
-    .header.item
-      = link_to 'Home', root_path
-    .right.menu
+%nav.navbar.navbar-expand.fixed-top.navbar-light{ :style => 'background-color: #05275E' }
+  = link_to 'Home', root_path, class: 'navbar-brand', style: 'color: white; background-color: #0000'
+  .collapse.navbar-collapse#navbarSupportedContent
+    %ul.navbar-nav.ml-auto
       - if user_signed_in?
-        .item
-          = link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => 'ui primary button right'
+        %li.nav-item.mr-2.pt-2{ style: 'color: white' }
+          = current_user.email
+        %li.nav-item
+          = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-sm', style: 'color: white'
       - else
-        .item
-          = link_to 'Sign In', new_user_session_path, :class => 'ui primary button right'
-        .item
-          = link_to 'Sign Up', new_user_registration_path, :class => 'ui button'
+        %li.nav-item
+          .btn-group
+            = link_to 'Sign In', new_user_session_path, class: 'btn btn-secondary btn-sm', style: 'color: white'
+            = link_to 'Sign Up', new_user_registration_path, class: 'btn btn-info btn-sm', style: 'color: white'
