@@ -15,9 +15,12 @@
  */
 
 @import 'bootstrap';
-@import './base';
 @import './components/plot';
 @import './components/kinds';
 @import './components/popList';
 @import './components/list';
 @import './components/rancher_app';
+
+.nav-spacer {
+  margin-top: 70px;
+}

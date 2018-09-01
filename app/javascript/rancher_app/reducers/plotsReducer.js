@@ -1,71 +1,13 @@
+import defaultState from '../constants/defaultState'
+import getKindDefaultProps from '../constants/getKindDefaultProps';
+import getKindDefaultLists from '../constants/getKindDefaultLists';
+
 let newState = [];
 let newList = [];
 
-const compartment = [
-  { selected: 'Blank', modalIsOpen: false },
-  { selected: 'Blank', modalIsOpen: false },
-  { selected: 'Blank', modalIsOpen: false }
-];
-
-const reducer = (state, action) => {
+const plotsReducer = (state = defaultState, action) => {
   newState = [];
   newList = [];
-
-  const getKindDefaultProps = (kind) => {
-    const resources = {
-      food: {
-        fruits: ['Pogofruit', 'Cuberry', 'Mint_Mango', 'Phase_Lemon', 'Prickle_Pear', 'Kookadoba'],
-        veggies: ['Carrot', 'Heart_Beet', 'Oca_Oca', 'Odd_Onion', 'Silver_Parsnip', 'Gilded_Ginger'],
-        meats: ['Hen_Hen', 'Stony_Hen', 'Briar_Hen', 'Painted_Hen', 'Roostro', 'Elder_Hen', 'Elder_Roostro']
-      },
-      slimes: ['Pink', 'Phosphor', 'Tabby', 'Honey', 'Saber', 'Hunter', 'Quantum', 'Tangle', 'Dervish', 'Rock', 'Boom', 'Rad', 'Crystal', 'Mosaic', 'Fire', 'Puddle'],
-      plorts: ['pink_plort', 'phosphor_plort', 'tabby_plort', 'honey_plort', 'puddle_plort', 'saber_plort', 'hunter_plort', 'quantum_plort', 'tangle_plort', 'dervish_plort', 'rock_plort', 'boom_plort', 'rad_plort', 'crystal_plort', 'mosaic_plort', 'fire_plort']
-    }
-    switch (kind) {
-      case 'coop':
-        return { resources: resources.food.meats.splice(0, 4) };
-        break;
-      case 'corral':
-        return { resources: resources.slimes.splice(0, 14), isHybrid: false };
-        break;
-      case 'garden':
-        return { resources: { fruits: resources.food.fruits.splice(0, 5), veggies: resources.food.veggies.splice(0, 5) } };
-        break;
-      case 'incinerator':
-        return { hasSlimes: false };
-        break;
-      case 'pond':
-        return { hasSlimes: false };
-        break;
-      case 'silo':
-        return { resources: { food: { fruits: resources.food.fruits.splice(0,5), veggies: resources.food.veggies, meats: resources.food.meats }, slimes: resources.slimes, plorts: resources.plorts }, compartments: 1 };
-        break;
-      default:
-    }
-  }
-  const getKindDefaultLists = (kind) => {
-    switch (kind) {
-      case 'coop':
-        return [{ selected: 'Blank', modalIsOpen: false }];
-        break;
-      case 'corral':
-        return [{ selected: 'Blank', modalIsOpen: false }, { selected: 'Blank', modalIsOpen: false }];
-        break;
-      case 'garden':
-          return [{ selected: 'Blank', modalIsOpen: false }];
-          break;
-      case 'incinerator':
-        return [{ selected: 'Fire', modalIsOpen: false }];
-        break;
-      case 'pond':
-        return [{ selected: 'Puddle', modalIsOpen: false }];
-        break;
-      case 'silo':
-        return compartment;
-        break;
-      default:
-    }
-  }
 
   switch (action.type) {
     case 'TOGGLE_HIDDEN':
@@ -223,4 +165,4 @@ const reducer = (state, action) => {
   }
 }
 
-export default reducer;
+export default plotsReducer;
