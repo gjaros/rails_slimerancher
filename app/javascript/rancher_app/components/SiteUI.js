@@ -1,33 +1,45 @@
 import React from 'react';
-import { loadState } from '../actions/actions';
+import { loadPlots, loadOutlines } from '../actions/actions';
 import axios from 'axios-on-rails';
 import ClipboardJS from 'clipboard';
-
-// Constants bring outlines data (of current user) into component via attribute..
-const node = document.getElementById('outlines_payload');
-const payload = JSON.parse(node.getAttribute('payload'));
-const current_user = node.getAttribute('current_user');
+import { current_user } from '../constants/defaultStates'
 
 // Instantiate ClipboardJS for button to copy state to clipboard as JSON string.
 new ClipboardJS('#copy-button');
 
 const SiteUI = (props) => (
-  <div className='container mt-3'>
-    {/* If no one is logged in payload will be null so this section won't load */}
+  <div className='container mt-2'>
+    {/* If no one is logged in props.outlines will be null so this section won't render */}
     {
-      payload !== null &&
+      props.outlines !== null &&
       <div>
-        {/* Renders buttons for each outline. OnClick each button's state will be passed to the reducer to change the state */}
-        <div className='mb-3 d-flex flex-wrap justify-content-around'>
+        {/* Fluid container holding all  */}
+        <div className='mb-3 d-flex flex-wrap justify-content-center'>
+          {/* Renders buttons for each outline. OnClick each button's state will be passed to the reducer to change the state */}
           {
-            payload.map((outline) => (
-              <button
-                key={outline.id}
-                className='btn btn-outline-primary mt-2'
-                onClick={() => { props.dispatch(loadState(outline.data)) }}
-              >
-                {outline.name}
-              </button>
+            props.outlines.map((outline) => (
+              <div key={outline.id} className='btn-group mt-1 mr-1 ml-1'>
+                <button
+                  className='btn btn-outline-primary'
+                  onClick={() => { props.dispatch(loadPlots(outline.data)) }}
+                >
+                  {outline.name}
+                </button>
+                <button
+                  className='btn btn-outline-danger'
+                  onClick={() => {
+                    axios.delete(`/outlines/${outline.id}.json`)
+                      .catch(error => console.log(error));
+                    //After DELETE, GET all outlines and refresh Outlines State.
+                    axios.get('/outlines.json')
+                      .then((response) => {
+                        props.dispatch(loadOutlines(response.data));
+                      })
+                      .catch(error => console.log(error));
+                    }}>
+                  ×
+                </button>
+              </div>
             ))
           }
         </div>
@@ -38,16 +50,16 @@ const SiteUI = (props) => (
             className='form-control'
             type='text'
             placeholder='layout name'
+            data-trigger='focus'
             data-toggle='popover'
             data-placement='top'
-            title='it will not save if name:'
+            title='Layout will not save if name:'
             data-html='true'
             data-content='
               <ul>
                 <li>is blank</li>
                 <li>length > 15 characters</li>
                 <li>length < 3  characters</li>
-                <li>is already used</li>
               </ul>
             '
           />
@@ -55,22 +67,20 @@ const SiteUI = (props) => (
             <button
               className='btn btn-outline-success'
               onClick={(e) => {
-              e.preventDefault();
               // performs Outline POST request
               axios.post('/outlines', {
-                outline: {
-                  user_id: current_user,
-                  name: document.getElementById('outline-name').value,
-                  data: JSON.stringify(props.current_state)
-                }
+                user_id: current_user,
+                name: document.getElementById('outline-name').value,
+                data: JSON.stringify(props.plots)
               })
-              .then(function(response){
-                console.log(response)
-              })
-              .catch(function(error){
-                console.log(error)
-              })
-            }}>
+                .catch(error => console.log(error));
+              //After POST, GET all outlines and refresh Outlines State.
+              axios.get('/outlines.json')
+                .then((response) => {
+                  props.dispatch(loadOutlines(response.data));
+                })
+                .catch(error => console.log(error));
+              }}>
               Create
             </button>
           </div>
@@ -84,12 +94,11 @@ const SiteUI = (props) => (
         className='form-control'
         type='text'
         placeholder='Paste Your Layout Here!'
-        value={ JSON.stringify(props.current_state) }
+        value={ JSON.stringify(props.plots) }
         onChange={(e) => {
-          props.dispatch(loadState(e.target.value))
+          props.dispatch(loadPlots(e.target.value))
         }}
       />
-
       <div className='input-group-append'>
         {/* Clears state-input. */}
         <button
@@ -97,7 +106,7 @@ const SiteUI = (props) => (
           onClick={() => {
             document.getElementById('state-input').value = '';
           }}>
-            Clear
+          Clear
         </button>
         {/* OnClick copies current state to clipboard */}
         <button
@@ -108,9 +117,9 @@ const SiteUI = (props) => (
           data-placement='right'
           title='Copied!'
           data-trigger='click'
-          data-clipboard-text={ JSON.stringify(props.current_state) }
-          >
-            Copy
+          data-clipboard-text={ JSON.stringify(props.plots) }
+        >
+          Copy
         </button>
       </div>
     </div>

@@ -37,8 +37,8 @@ const subComp = (plotID) => ({
   plotID
 });
 
-const loadState = (newState) => ({
-  type: 'LOAD_STATE',
+const loadPlots = (newState) => ({
+  type: 'LOAD_PLOTS',
   newState
 });
 
@@ -47,4 +47,9 @@ const toggleHasSlimes = (plotID) => ({
   plotID
 });
 
-export { toggleHidden, setKind, setSelected, toggleModal, toggleIsHybrid, addComp, subComp, loadState, toggleHasSlimes };
+const loadOutlines = (outlines) => ({
+  type: 'LOAD_OUTLINES',
+  outlines
+});
+
+export { toggleHidden, setKind, setSelected, toggleModal, toggleIsHybrid, addComp, subComp, loadPlots, toggleHasSlimes, loadOutlines };

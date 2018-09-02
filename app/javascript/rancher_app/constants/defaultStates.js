@@ -45,10 +45,10 @@ const locations = [
   [1550, 1050]
 ]
 
-let plots = [];
+let defaultPlots = [];
 
 locations.forEach((plot) => {
-  plots.push({
+  defaultPlots.push({
     hidden: true,
     location: plot,
     kind: 'default',
@@ -57,4 +57,10 @@ locations.forEach((plot) => {
   });
 });
 
-export default plots;
+// Constants bring outlines data (of current user) into component via attribute..
+const node = document.getElementById('outlines_payload');
+
+const defaultOutlines = JSON.parse(node.getAttribute('payload'));
+const current_user = node.getAttribute('current_user');
+
+export { defaultPlots, defaultOutlines, current_user };

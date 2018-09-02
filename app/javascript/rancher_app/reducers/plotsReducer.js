@@ -1,11 +1,11 @@
-import defaultState from '../constants/defaultState'
+import { defaultPlots } from '../constants/defaultStates'
 import getKindDefaultProps from '../constants/getKindDefaultProps';
 import getKindDefaultLists from '../constants/getKindDefaultLists';
 
 let newState = [];
 let newList = [];
 
-const plotsReducer = (state = defaultState, action) => {
+const plotsReducer = (state = defaultPlots, action) => {
   newState = [];
   newList = [];
 
@@ -138,7 +138,7 @@ const plotsReducer = (state = defaultState, action) => {
       });
       return newState;
       break;
-    case 'LOAD_STATE':
+    case 'LOAD_PLOTS':
       return JSON.parse(action.newState);
       break;
     case 'TOGGLE_HAS_SLIMES':

@@ -25,8 +25,17 @@ $(document).ready(function(){
           that.tooltip('hide');
       }, 2000);
   });
-  $('.fade-tooltip').mouseleave(function(){
-      $(this).tooltip('hide');
+
+  $('[data-toggle="popover"]').popover()
+
+  $('.popover-dismiss').popover({
+    trigger: 'focus'
   });
-  $('[data-toggle="popover"]').popover();
+
+  //OnClick, collapses notes list, changes chevron direction.
+  $('.list-group-item').on('click', function() {
+    $('.fa.fa', this)
+      .toggleClass('fa-chevron-right')
+      .toggleClass('fa-chevron-down');
+  });
 });

@@ -16,13 +16,14 @@ const Rancher_App = (props) => (
         }
       </div>
     </div>
-    <SiteUI current_state={props.plots} dispatch={props.dispatch}/>
+    <SiteUI plots={props.plots} outlines={props.outlines} dispatch={props.dispatch}/>
   </div>
 );
 
 const mapStateToProps = (state) => {
   return {
-    plots: state.plotsReducer
+    plots: state.plotsReducer,
+    outlines: state.outlinesReducer
   };
 }
 

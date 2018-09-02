@@ -1,0 +1,27 @@
+-# https://jsfiddle.net/ann7tctp/
+
+.container
+  .list-group.list-group-root.well
+    %a.list-group-item{ :href => '#item-1', 'data-toggle' => 'collapse'}
+      = fa_icon('chevron-right')
+      v1
+    #item-1.list-group.collapse
+      %a.list-group-item{ :href => '#item-1-0', 'data-toggle' => 'collapse'}
+        = fa_icon('chevron-right')
+        v1.0
+      #item-1-0.list-group.collapse
+        %a.list-group-item{ :href => '#item-1-0-0', 'data-toggle' => 'collapse'}
+          = fa_icon('chevron-right')
+          v1.0.0
+        #item-1-0-0.list-group.collapse
+          .list-group-item Rancher App Release!
+        %a.list-group-item{ :href => '#item-1-0-1', 'data-toggle' => 'collapse'}
+          = fa_icon('chevron-right')
+          v1.0.1
+        #item-1-0-1.list-group.collapse
+          .list-group-item Added this page!
+          .list-group-item Incinerator's fire slime badge now disappears when box is unchecked.
+          .list-group-item Removed slimes from silo radial menu.
+          .list-group-item Layouts created/deleted without page refresh.
+          .list-group-item Removed "Manage Layouts" button, no longer needed.
+          .list-group-item Tooltips and Popovers now behave as intended.

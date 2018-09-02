@@ -31,7 +31,7 @@ const Plot = ({ dispatch, hidden, location, kind, plotProps, lists }) => {
   return (
     <div>
       {
-        ((kind === 'garden' || kind === 'coop' || kind === 'corral') || (kind === 'incinerator' || kind === 'pond' && plotProps.hasSlimes)) &&
+        ((kind === 'garden' || kind === 'coop' || kind === 'corral') || ((kind === 'incinerator' || kind === 'pond') && plotProps.hasSlimes)) &&
         <div
           className="badge"
           style={{ backgroundImage: 'url(' + require('../images/' + lists[0].selected + '.png') + ')', left: location[0], top: location[1], zIndex: 1, transform: "translate(-8px, -8px)" }}>

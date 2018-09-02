@@ -18,7 +18,7 @@ const getKindDefaultProps = (kind) => {
       return { hasSlimes: false };
       break;
     case 'silo':
-      return { resources: { food: { fruits: resources.food.fruits.splice(0,5), veggies: resources.food.veggies, meats: resources.food.meats }, slimes: resources.slimes, plorts: resources.plorts }, compartments: 1 };
+      return { resources: { food: { fruits: resources.food.fruits.splice(0,5), veggies: resources.food.veggies, meats: resources.food.meats }, plorts: resources.plorts }, compartments: 1 };
       break;
     default:
   }
