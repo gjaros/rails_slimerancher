@@ -13,18 +13,20 @@ const SiteUI = (props) => (
     {
       props.outlines !== null &&
       <div>
-        {/* Fluid container holding all  */}
+        {/* Fluid container holding all buttons */}
         <div className='mb-3 d-flex flex-wrap justify-content-center'>
-          {/* Renders buttons for each outline. OnClick each button's state will be passed to the reducer to change the state */}
+          {/* Renders button groups for each outline. OnClick each button's state will be passed to the reducer to change the state */}
           {
             props.outlines.map((outline) => (
               <div key={outline.id} className='btn-group mt-1 mr-1 ml-1'>
+                {/* Changes plots state */}
                 <button
                   className='btn btn-outline-primary'
                   onClick={() => { props.dispatch(loadPlots(outline.data)) }}
                 >
                   {outline.name}
                 </button>
+                {/* Deletes layout */}
                 <button
                   className='btn btn-outline-danger'
                   onClick={() => {
@@ -57,6 +59,7 @@ const SiteUI = (props) => (
             data-html='true'
             data-content='
               <ul>
+                <li>is already used</li>
                 <li>is blank</li>
                 <li>length > 15 characters</li>
                 <li>length < 3  characters</li>
@@ -67,19 +70,23 @@ const SiteUI = (props) => (
             <button
               className='btn btn-outline-success'
               onClick={(e) => {
-              // performs Outline POST request
-              axios.post('/outlines', {
-                user_id: current_user,
-                name: document.getElementById('outline-name').value,
-                data: JSON.stringify(props.plots)
-              })
-                .catch(error => console.log(error));
-              //After POST, GET all outlines and refresh Outlines State.
-              axios.get('/outlines.json')
-                .then((response) => {
-                  props.dispatch(loadOutlines(response.data));
-                })
-                .catch(error => console.log(error));
+                //If statement checks to see if the layout's name has already been used.
+                if(props.outlines.filter(outline => outline.name === document.getElementById('outline-name').value).length < 0) {
+                  //Performs Outline POST request
+                  axios.post('/outlines', {
+                    user_id: current_user,
+                    name: document.getElementById('outline-name').value,
+                    data: JSON.stringify(props.plots)
+                  })
+                    .then(() => { document.getElementById('outline-name').value = ''; })
+                    .catch(error => console.log(error));
+                  //After POST, GET all outlines and refresh Outlines State.
+                  axios.get('/outlines.json')
+                    .then((response) => {
+                      props.dispatch(loadOutlines(response.data));
+                    })
+                    .catch(error => console.log(error));
+                }
               }}>
               Create
             </button>
