@@ -71,7 +71,7 @@ const SiteUI = (props) => (
               className='btn btn-outline-success'
               onClick={(e) => {
                 //If statement checks to see if the layout's name has already been used.
-                if(props.outlines.filter(outline => outline.name === document.getElementById('outline-name').value).length < 0) {
+                if(props.outlines.filter(outline => outline.name === document.getElementById('outline-name').value).length === 0) {
                   //Performs Outline POST request
                   axios.post('/outlines', {
                     user_id: current_user,

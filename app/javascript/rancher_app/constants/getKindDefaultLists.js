@@ -1,8 +1,4 @@
-const compartment = [
-  { selected: 'Blank', modalIsOpen: false },
-  { selected: 'Blank', modalIsOpen: false },
-  { selected: 'Blank', modalIsOpen: false }
-];
+import compartment from './compartment'
 
 const getKindDefaultLists = (kind) => {
   switch (kind) {

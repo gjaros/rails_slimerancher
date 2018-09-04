@@ -1,4 +1,5 @@
-import { defaultPlots } from '../constants/defaultStates'
+import { defaultPlots } from '../constants/defaultStates';
+import compartment from '../constants/compartment';
 import getKindDefaultProps from '../constants/getKindDefaultProps';
 import getKindDefaultLists from '../constants/getKindDefaultLists';
 
