@@ -32,3 +32,9 @@
           .list-group-item Fixed bug where you could not add/subtract silo compartments.
           .list-group-item Fixed visual where silo items where not rendering properly.
           .list-group-item Fixed create button.
+        %a.list-group-item{ :href => '#item-1-0-3', 'data-toggle' => 'collapse'}
+          = fa_icon('chevron-right')
+          v1.0.3
+        #item-1-0-3.list-group.collapse
+          .list-group-item Made it so only one plot can be open at a time. This is to prevent some unintended selection behavior (ex. being able to put puddle/fire slimes in corrals).
+          .list-group-item Fixed issue where items from select UI would disappear after use.

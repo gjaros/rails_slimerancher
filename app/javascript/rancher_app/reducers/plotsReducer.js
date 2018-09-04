@@ -20,7 +20,10 @@ const plotsReducer = (state = defaultPlots, action) => {
           });
         }
         else {
-          newState.push(plot);
+          newState.push({
+            ...plot,
+            hidden: true
+          });
         }
       });
       return newState;
