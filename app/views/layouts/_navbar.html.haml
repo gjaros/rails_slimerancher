@@ -1,14 +1,19 @@
-%nav.navbar.navbar-expand.fixed-top.navbar-light{ :style => 'background-color: #05275E' }
+%nav.navbar.navbar-expand-lg.fixed-top.navbar-dark{ :style => 'background-color: #05275E' }
   = link_to 'Rancher App', root_path, class: 'navbar-brand', style: 'color: white; background-color: #0000'
-  = link_to 'v1.0.3', notes_path, class: 'btn btn-outline-info btn-sm', style: 'color: white'
+  = link_to 'v1.0.3', notes_path, class: 'btn btn-outline-info btn-sm mr-auto', style: 'color: white'
+  %button.navbar-toggler{ :type => 'button', 'data-toggle' => 'collapse', 'data-target' => '#navbarSupportedContent', 'aria-controls' => 'navbarSupportedContent', 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation' }
+    %span.navbar-toggler-icon{ style: 'color: white' }
   .collapse.navbar-collapse#navbarSupportedContent
-    %ul.navbar-nav.ml-auto
+    %ul.navbar-nav.text-center.ml-auto
       - if user_signed_in?
         %li.nav-item.mr-2.pt-2{ style: 'color: white' }
           = current_user.email
+        .dropdown-divider
         %li.nav-item
           = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-sm', style: 'color: white'
       - else
+        %li.nav-item.mr-2.pt-2{ style: 'color: white' } Welcome Guest!
+        .dropdown-divider
         %li.nav-item
           .btn-group
             = link_to 'Sign In', new_user_session_path, class: 'btn btn-secondary btn-sm', style: 'color: white'

@@ -16,6 +16,7 @@
   border-radius: 5%;
   height: 156px;
   width:156px;
+  z-index: 2;
 }
 
 .plot-button {
@@ -43,7 +44,7 @@
   border-radius: 100%;
   height: 32px;
   width: 32px;
-  // background-color: white;
+  z-index: 1;
 }
 .badge:empty {
   display:block;

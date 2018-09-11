@@ -34,14 +34,14 @@ const Plot = ({ dispatch, hidden, location, kind, plotProps, lists }) => {
         ((kind === 'garden' || kind === 'coop' || kind === 'corral') || ((kind === 'incinerator' || kind === 'pond') && plotProps.hasSlimes)) &&
         <div
           className="badge"
-          style={{ backgroundImage: 'url(' + require('../images/' + lists[0].selected + '.png') + ')', left: location[0], top: location[1], zIndex: 1, transform: "translate(-8px, -8px)" }}>
+          style={{ backgroundImage: 'url(' + require('../images/' + lists[0].selected + '.png') + ')', left: location[0], top: location[1], transform: "translate(-8px, -8px)" }}>
         </div>
       }
       {
         kind === 'corral' &&
         <div
           className="badge"
-          style={{ backgroundImage: 'url(' + require('../images/' + lists[1].selected + '.png') + ')', left: location[0], top: location[1], zIndex: 1, transform: "translate(40px, -8px)"}}>
+          style={{ backgroundImage: 'url(' + require('../images/' + lists[1].selected + '.png') + ')', left: location[0], top: location[1], transform: "translate(40px, -8px)"}}>
         </div>
       }
       <button
@@ -54,7 +54,7 @@ const Plot = ({ dispatch, hidden, location, kind, plotProps, lists }) => {
       <div
         hidden={hidden}
         className="plot"
-        style={hidden ? {} : { left: location[0], top: location[1], transform: 'translate(-50%, -50%)', display: 'block', position: 'absolute', zIndex: 2 }}
+        style={hidden ? {} : { left: location[0], top: location[1], transform: 'translate(-50%, -50%)', position: 'absolute' }}
         >
         <select onChange={(e) => {
           dispatch(setKind({ kind: e.target.value, plotID: location.toString() }));

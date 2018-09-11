@@ -1,0 +1,24 @@
+.scaler-container {
+  overflow: scroll;
+}
+#scaler {
+  position: relative;
+  transition: transform ease .3s;
+}
+.button-bar {
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+}
+.button-bar__R {
+  font-weight: bold;
+  height:50px;
+  width:25px;
+  border-radius: 0 90px 90px 0;
+}
+.button-bar__L {
+  font-weight: bold;
+  height:50px;
+  width:25px;
+  border-radius: 90px 0 0 90px;
+}
