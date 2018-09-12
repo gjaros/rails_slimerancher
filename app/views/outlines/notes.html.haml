@@ -38,3 +38,14 @@
         #item-1-0-3.list-group.collapse
           .list-group-item Made it so only one plot can be open at a time. This is to prevent some unintended selection behavior (ex. being able to put puddle/fire slimes in corrals).
           .list-group-item Fixed issue where items from select UI would disappear after use.
+      %a.list-group-item{ :href => '#item-1-1', 'data-toggle' => 'collapse'}
+        = fa_icon('chevron-right')
+        v1.1
+      #item-1-1.list-group.collapse
+        %a.list-group-item{ :href => '#item-1-1-0', 'data-toggle' => 'collapse'}
+          = fa_icon('chevron-right')
+          v1.1.0
+        #item-1-1-0.list-group.collapse
+          .list-group-item Mobile friendlieness update!
+          .list-group-item Map now scales with screen size, select UI also now fits on smaller screens!
+          .list-group-item Navagation bar now accomodates smaller screens.
