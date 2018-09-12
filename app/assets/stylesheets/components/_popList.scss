@@ -1,5 +1,10 @@
 .button-container {
   position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-45%, -25%);
+  width: 442.5px;
+  height: 952.5px;
 }
 
 .button {
@@ -18,27 +23,18 @@
 .button__main {
   transform: translate(200px, 200px) translate(-50%, -50%);
   box-shadow: 3px 5px 5px black;
-  height: 60px;
-  width: 60px;
-  font-size: 15px;
+  height: 70px;
+  width: 70px;
   img {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
   }
-}
-
-.button__close {
-  height: 32px;
-  width: 32px;
-  transform: translate(200px, 250px) translate(-50%, -50%);
-  z-index: 2;
 }
 
 .button__item {
   box-shadow: 1px 5px 5px black;
-  height: 45px;
-  width: 45px;
-  font-size: 10px;
+  height: 60px;
+  width: 60px;
   img {
     width: 40px;
     height: 40px;

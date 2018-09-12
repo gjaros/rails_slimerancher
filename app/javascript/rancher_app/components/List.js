@@ -8,17 +8,16 @@ const customStyles = {
   content: {
     display: 'block',
     background: 'none',
-    border: 'none',
-    zIndex: 3,
     top: '50%',
     left: '50%',
-    transform: 'translate(-25%, -50%)',
-    overflow: 'visible'
+    transform: 'translate(-50%, -50%)',
+    overflow: 'visible',
+    zIndex: 2
   },
   overlay: {
     display: 'block',
     backgroundColor: 'rgba(0, 0, 0, 0.75)',
-    zIndex: 3
+    zIndex: 2
   }
 };
 
@@ -41,9 +40,6 @@ class List extends React.Component {
   toggleModal = () => {
     this.setState({ modalIsOpen: !this.state.modalIsOpen });
     this.props.dispatch(toggleModal(this.state.plotID, this.state.listsIndex));
-  }
-  closeModal = () => {
-    this.setState({ modalIsOpen: false });
   }
   handleOnSelectChange = (selected) => {
     if (selected === "") {
@@ -116,13 +112,9 @@ class List extends React.Component {
           style={customStyles}
           className="modal"
           ariaHideApp={false}
+          onRequestClose={this.toggleModal}
+          shouldCloseOnOverlayClick={true}
           >
-          <button
-            className="button button__close"
-            onClick={this.toggleModal}
-            >
-              <span>&times;</span>
-          </button>
           <PopList
             list={this.state.entriesList}
             selected={this.state.selected}
