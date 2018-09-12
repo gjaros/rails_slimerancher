@@ -31,6 +31,14 @@
   }
 }
 
+.button__close {
+  transform: translate(200px, 250px) translate(-50%, -50%);
+  box-shadow: 1px 5px 5px black;
+  height: 25px;
+  width: 25px;
+  justify-content: center;
+}
+
 .button__item {
   box-shadow: 1px 5px 5px black;
   height: 60px;

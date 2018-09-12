@@ -39,6 +39,12 @@ export default class PopList extends React.Component {
             </button>
           ))
         }
+        <button
+          className='button button__close'
+          onClick={this.handleOnDoubleClick}
+        >
+          &times;
+        </button>
       </div>
     );
   }
